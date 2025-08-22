@@ -22,4 +22,7 @@ export class Personagem{
         this.vidaMaxima = 0;
         this.poderAtaque = 0;
     }
+    treinarPoderAtaque(): void {
+        this.poderAtaque += 3 + this.poderAtaque * 1.1;
+    }
 }
