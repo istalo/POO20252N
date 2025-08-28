@@ -28,4 +28,15 @@ export class Personagem{
         const incrementoDoTreino: number = util.gerarNumeroAleatorio(5, 15);
         this.poderAtaque += incrementoDoTreino + 3 + this.poderAtaque * 1.1;
     }
+
+    //estaVivo(){
+    //    if (this.vidaAtual > 0) {
+    //        return true;
+    //     }
+    //    return false;
+    //}
+
+    estaVivo(){
+       return (this.vidaAtual > 0);
+    }
 }
