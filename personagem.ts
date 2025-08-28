@@ -1,4 +1,6 @@
+import { util } from "./util.js";
 export class Personagem{
+
     nome: string
     classe: string
     raca: string
@@ -23,6 +25,7 @@ export class Personagem{
         this.poderAtaque = 0;
     }
     treinarPoderAtaque(): void {
-        this.poderAtaque += 3 + this.poderAtaque * 1.1;
+        const incrementoDoTreino: number = util.gerarNumeroAleatorio(5, 15);
+        this.poderAtaque += incrementoDoTreino + 3 + this.poderAtaque * 1.1;
     }
 }
