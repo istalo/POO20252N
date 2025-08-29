@@ -7,7 +7,8 @@ const p = new Personagem("Edécio");
 p.classe = "Monge";
 p.raca = "Morto-vivo";
 p.nivel = Math.floor(1+ Math.random() * 99);
-p.arma = "Cajado";
+p.arma = "Desarmado";
+p.armaPoder = 1;
 p.manaMaxima = 100;
 p.manaAtual = p.manaMaxima;
 p.vidaMaxima = 100;
@@ -19,7 +20,12 @@ while(true) {
 console.log("+--------------MENU--------------+");
 console.log("| 1. Treinar Poder de Ataque     |");
 console.log("| 2. Ver Status                  |");
-console.log("| 3. Checar se personagem vive   |");
+console.log("| 3. Checar Vida                 |");
+console.log("| 4. Equipar Arma                |");
+console.log("| 5. Lançar Feitiço              |");
+console.log("| 6. Atacar                      |");
+console.log("| 7. Apanhar                     |");
+console.log("| 8. Recuperar Mana              |");
 console.log("| 9. Sair                        |");
 console.log("+--------------------------------+");
 
@@ -37,12 +43,18 @@ switch(escolha){
         break;
     case 3:
         console.log(p.estaVivo()? "Personagem vivo" : "Foi pro Vasco");
+        break;
+    case 4:
+        equiparArma(p);
+        break;
+    case 5:
+    case 6:
+    case 7:
+    case 8:
     default:
         console.log("Opção inválida!");
         break;
 }
-
-
 }
 
 
@@ -52,3 +64,10 @@ function treinarPoderAtaque(person: Personagem): void{
 }
 
 console.table(p);
+
+function equiparArma(p: Personagem): void {
+    const novaArma = teclado("Qual arma deseja equipar? ");
+    const poderDaArma = +teclado("Qual o poder da arma? ");
+    p.equiparArma(novaArma, poderDaArma);
+    console.log(`Arma equipada: ${novaArma} com poder: ${poderDaArma}`);
+}

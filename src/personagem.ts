@@ -1,4 +1,4 @@
-import { util } from "./util.js";
+import { util } from "./util";
 export class Personagem{
 
     nome: string
@@ -6,6 +6,7 @@ export class Personagem{
     raca: string
     nivel: number
     arma: string
+    armaPoder: number
     manaAtual: number
     manaMaxima: number
     vidaAtual: number
@@ -18,6 +19,7 @@ export class Personagem{
         this.raca = "";
         this.nivel = 0;
         this.arma = "";
+        this.armaPoder = 0;
         this.manaAtual = 0;
         this.manaMaxima = 0;
         this.vidaAtual = 0;
@@ -38,5 +40,11 @@ export class Personagem{
 
     estaVivo(){
        return (this.vidaAtual > 0);
+    }
+
+
+    equiparArma(novaArma: string, poderDaArma: number): void {
+    this.arma = novaArma;
+    this.poderAtaque += poderDaArma ;
     }
 }
