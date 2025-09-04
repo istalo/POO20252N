@@ -47,4 +47,17 @@ export class Personagem{
     this.arma = novaArma;
     this.poderAtaque += poderDaArma ;
     }
+
+
+    apanhar(p: Personagem): void {
+        const recuperacao: number = 10;
+        p.vidaAtual += recuperacao;
+        if (p.vidaAtual > p.vidaMaxima) {
+            p.vidaAtual = p.vidaMaxima;
+        }
+        console.log(`${p.nome} recupera ${recuperacao} de vida! Vida atual: ${p.vidaAtual}`);
+    }
+
 }
+
+    

@@ -48,16 +48,22 @@ switch(escolha){
         equiparArma(p);
         break;
     case 5:
+        console.log("Lançar Feitiço - Em construção");
+        break;
     case 6:
+        atacar(p);
+        break;
     case 7:
+        apanhar(p);
+        break;
     case 8:
+        recuperarMana(p);
+        break;
     default:
         console.log("Opção inválida!");
         break;
 }
 }
-
-
 
 function treinarPoderAtaque(person: Personagem): void{
     person.treinarPoderAtaque();
@@ -70,4 +76,32 @@ function equiparArma(p: Personagem): void {
     const poderDaArma = +teclado("Qual o poder da arma? ");
     p.equiparArma(novaArma, poderDaArma);
     console.log(`Arma equipada: ${novaArma} com poder: ${poderDaArma}`);
+}
+
+function recuperarMana(p: Personagem): void {
+    const recuperacao: number = Math.floor(5 + Math.random() * 15);
+    p.manaAtual += recuperacao;
+    if (p.manaAtual > p.manaMaxima) {
+        p.manaAtual = p.manaMaxima;
+    }
+    console.log(`${p.nome} recuperou ${recuperacao} de mana! Mana atual: ${p.manaAtual}`);
+}
+
+function atacar(p: Personagem): void {
+    const ataque: number = p.poderAtaque;
+    console.log(`${p.nome} ataca com ${p.arma} causando ${ataque} de dano!`);
+}
+
+function apanhar(p: Personagem): void {
+    const dano: number = Math.floor(10 + Math.random() * 10);
+    p.vidaAtual -= dano;
+    console.log(`${p.nome} sofreu ${dano} de dano! Vida atual: ${p.vidaAtual}`);
+    if (!p.estaVivo()) {
+        console.log(`${p.nome} foi derrotado!`);
+    }
+
+    if (p.vidaAtual <= 0) {
+        console.log(`${p.nome} não pode apanhar porque já está derrotado!`);
+        return;
+    }
 }

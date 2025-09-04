@@ -5,19 +5,14 @@ export class util {
     return minimo + Math.round(Math.random() * (maximo - minimo));
     }
 
-    static gerarNome(): string{
+    static gerarInimigoAleatorio(): string {
+        const inimigos = ["Goblin", "Orc", "Troll", "Dragão", "Esqueleto"];
+        const randomIndex = Math.floor(Math.random() * inimigos.length);
+        return inimigos[randomIndex]!;
+    }
 
-        const randomName = faker.person.firstName();
+    static gerarNome(): string {
+        const randomName = faker.person.firstName() ?? "NomeGenérico";
         return randomName;
     }
-
-static gerarEmail(nomedoUsuario: string){
-    return faker.internet.email({firstName: nomedoUsuario});
-
-    }
-
-}
-    for (let index = 0; index < 10; index++) {
-        const nome = util.gerarNome();
-        const email = util.gerarEmail(nome);
 }
